@@ -17,6 +17,37 @@ curl http://localhost:8080/hello
 curl http://localhost:8080/actuator/health
 ```
 
+### Установка minikube на Apple Silicon (ARM64)
+1. Загрузить версию для ARM64
+```bash
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-arm64
+```
+
+2. Сделать файл исполняемым и переместите его в /usr/local/bin/
+```bash
+chmod +x minikube-darwin-arm64
+sudo mv minikube-darwin-arm64 /usr/local/bin/minikube
+```
+
+3. Проверить, что установка прошла успешно:  
+```bash
+minikube version
+```
+Консоль:
+```text
+  minikube version: v1.37.0
+  commit: 65318f4cfff9c12cc87ec9eb8f4cdd57b25047f3
+```
+
+4. Запустить Docker-desktop (установить его с официального сайта: https://www.docker.com/products/docker-desktop)  
+
+
+5. Запустите Minikube с драйвером docker: 
+```bash
+minikube start --driver=docker
+```
+
+
 ### Сборка и деплой в minikube
 1. Собираем JAR 
 ```bash
