@@ -46,7 +46,14 @@ minikube version
 ```bash
 minikube start --driver=docker
 ```
-
+Пояснение:
+```text
+1) minikube start — запускает кластер Minikube.
+2) --driver=docker — указывает, что Minikube должен использовать Docker как гипервизор (точнее, как контейнер-рантайм).
+3) При первом запуске Minikube (или если образ ещё не загружен), Minikube автоматически скачивает специальный образ — gcr.io/k8s-minikube/kicbase:<version>.
+4) Образ gcr.io/k8s-minikube/kicbase:<version> помещается в Docker  
+5) kicbase означает Kubernetes in Container Base — это базовый образ, в котором запускается весь кластер Kubernetes (kubelet, apiserver и т.д.) внутри Docker-контейнера.
+```
 
 ### Сборка и деплой в minikube
 1. Собираем JAR 
